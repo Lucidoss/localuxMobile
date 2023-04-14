@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="reservation"></ion-back-button>
+      <ion-title>Réservation</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Réservation</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <div>
+  <h4>{{destination.libelle}}</h4>
+  <form>
+    <ion-list>
+      <ion-item>
+        <ion-select aria-label="vehicule" interface="action-sheet" placeholder="Choisir un vehicule">
+          <ion-item *ngFor="let item of ListeVehicule">
+            <ion-select-option value="{{item.immatriculation}}">{{item.immatriculation}} | {{item.modele}}</ion-select-option>
+          </ion-item>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <h5>Date et heure du départ :</h5>
+    <ion-datetime-button datetime="datetime"></ion-datetime-button>
+    <ion-modal [keepContentsMounted]="true">
+      <ng-template>
+        <ion-datetime id="datetime"></ion-datetime>
+      </ng-template>
+    </ion-modal>
+
+    <br/><ion-button (click)="reserver">Réserver</ion-button>
+  </form>
+  </div>
+</ion-content>
