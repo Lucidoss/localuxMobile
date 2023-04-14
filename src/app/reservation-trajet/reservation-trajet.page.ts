@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { Router,NavigationExtras,ActivatedRoute } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
 import { HttpClient} from '@angular/common/http';
 
 
@@ -28,9 +28,5 @@ export class ReservationTrajetPage implements OnInit {
    }
 
   ngOnInit() {
-  }
-
-  reserver(){
-    this.http.get("http://127.0.0.1:8000/api/reserver").subscribe(results => {this.ListeVehicule=results})
   }
 }
